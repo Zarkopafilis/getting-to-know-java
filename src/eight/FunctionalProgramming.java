@@ -2,6 +2,7 @@ package eight;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -43,10 +44,23 @@ public class FunctionalProgramming {
 
 		persons.stream().filter(legalDrinkingAgeChecker).forEach(out::println);
 
-
 		Consumer<String> printman = x -> out.println(x);
 		printman.accept("test");
 
+		///////////////
+
+		Optional<Integer> possibleInt = Optional.empty();
+
+		System.out.println("Present:" + possibleInt.isPresent());
+		System.out.println("orElse:" + possibleInt.orElse(5));
+
+		System.out.println("orElse with supplier:" + possibleInt.orElseGet(FunctionalProgramming::getSomeDefault));
+
+		System.out.println("Value:" + possibleInt.get());
+	}
+
+	private static int getSomeDefault() {
+		return 15;
 	}
 
 }
