@@ -10,19 +10,19 @@ public class LambdaExample {
 
 	public static void main(String[] args) {
 
-		List<String> stuff = Arrays.asList("One", "Two", "Three");
+		List<String> listOfStrings = Arrays.asList("One", "Two", "Three");
 
-		proccess(stuff, x -> System.out.println(x + "1"));
-		proccess(stuff, x -> System.out.println(x.toUpperCase()));
+		proccess(listOfStrings, s -> System.out.println(s + "1"));
+		proccess(listOfStrings, str -> System.out.println(str.toUpperCase()));
 
-		IAmFunctional func = s -> {
+		IAmAFunctionalInterface func = s -> {
 			if(s.equals("One")){
 				System.out.println("1");
 			}else{
 				System.out.println(s);
 			}
 		};
-		proccess(stuff, func);
+		proccess(listOfStrings, func);
 
 
 		Thread t = new Thread(() -> {
@@ -41,12 +41,12 @@ public class LambdaExample {
 	}
 
 
-	private static void proccess(List<String> entries, IAmFunctional functionalInterface) {
+	private static void proccess(List<String> entries, IAmAFunctionalInterface functionalInterface) {
 		entries.forEach(functionalInterface::doStuff);
 	}
 
 }
 
-interface IAmFunctional{
+interface IAmAFunctionalInterface {
 	void doStuff(String s);
 }

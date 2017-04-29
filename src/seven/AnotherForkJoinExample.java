@@ -14,7 +14,7 @@ public class AnotherForkJoinExample {
 	public static void main(String[] args) {
 		List<Integer> list = new ArrayList<>();
 
-		for(int i = 0 ; i < 5000; i++) {
+		for(int i = 0 ; i < 500000; i++) {
 			list.add(i);
 		}
 

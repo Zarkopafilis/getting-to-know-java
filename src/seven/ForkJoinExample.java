@@ -18,21 +18,12 @@ public class ForkJoinExample {
 			firstList.add(i + "");
 		}
 
-		List<String> secondList = new ArrayList<>();
-
-		for(int i = 0 ; i < 5000; i++) {
-			secondList.add(i + "");
-		}
-
 		long start = System.currentTimeMillis();
 
 		for (String s : firstList) {
 			System.out.println(s);
 		}
 
-		for (String s : secondList) {
-			System.out.println(s);
-		}
 
 		long single = System.currentTimeMillis() - start;
 
@@ -40,17 +31,14 @@ public class ForkJoinExample {
 
 		ForkJoinPool pool = ForkJoinPool.commonPool();
 		SomeComputation firstSc = new SomeComputation(firstList);
-		SomeComputation secondSc = new SomeComputation(secondList);
 
 		pool.invoke(firstSc);
-		pool.invoke(secondSc);
 
 		long forkTime = System.currentTimeMillis() - start;
 
 		System.out.println("Single Thread Time: " + single);
 		System.out.println("Fork Join Time: " + forkTime);
 	}
-
 
 }
 
@@ -62,7 +50,6 @@ class SomeComputation extends RecursiveAction{
 	public SomeComputation(List<String> n) {
 		this.n = n;
 	}
-
 
 	@Override
 	protected void compute() {

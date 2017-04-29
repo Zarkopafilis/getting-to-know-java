@@ -46,7 +46,7 @@ public class DequeueExample {
 		}
 
 		deq.addFirst("New A");
-		deq.addFirst("New C");
+		deq.addLast("New C");
 
 		out.println();
 

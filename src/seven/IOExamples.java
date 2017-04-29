@@ -19,8 +19,6 @@ public class IOExamples {
 			out.println(p);
 		}
 
-
-
 //		Files.createSymbolicLink(Paths.get("C:\\Users\\zarkopafilis\\Desktop\\GettingToKnowJava\\tests"), Paths.get("C:\\Users\\zarkopafilis\\Desktop\\GettingToKnowJava"));
 
 		//Watch service

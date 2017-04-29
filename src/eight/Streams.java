@@ -15,13 +15,16 @@ public class Streams {
 		String[] friendlyNames = {"Alpha", "Beta", "Delta", "George", "Takis"};
 
 		List<Transaction> transactions = new ArrayList<>();
-		for(int i=0;i<50;i++) {
+		for(int i=0;i<20;i++) {
 			transactions.add(new Transaction(r.nextBoolean() ? TransactionType.BANK : TransactionType.PAYPAL,
 					r.nextInt(500) + 500,
 					friendlyNames[r.nextInt(friendlyNames.length)]));
 		}
 
-		transactions.stream().filter(x -> x.getMoney() > 750).findFirst().ifPresent(System.out::println);
+		transactions.stream().sorted((x,y) -> Integer.compare(x.getMoney(), y.getMoney()));
+
+		transactions.stream().filter(x -> x.getTransactionType() == TransactionType.BANK).findFirst().ifPresent(System.out::println);
+
 
 		long startTime = System.currentTimeMillis();
 		System.out.println("Sum of transaction money: " + transactions.stream().mapToInt(x -> x.getMoney()).sum());

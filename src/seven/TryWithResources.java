@@ -15,7 +15,6 @@ public class TryWithResources {
 	public static void main(String[] args) {
 		//Pre J7
 
-
 		BufferedReader br = null;
 		try{
 			br = new BufferedReader(new FileReader("src/seven/file.txt"));
@@ -44,13 +43,10 @@ public class TryWithResources {
 		//============================ After J7
 
 		try (BufferedReader bufr = new BufferedReader(new FileReader("src/seven/file.txt"))){
-
 			String line;
-
 			while ((line = bufr.readLine()) != null) {
 				out.println(line);
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

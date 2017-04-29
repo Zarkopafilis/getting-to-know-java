@@ -32,7 +32,7 @@ public class RandomStuff {
 		}
 
 		//Diamonds
-		List<String> oldList = new ArrayList<String>();
+		List<String> oldList = new ArrayList<>();
 		List<String> newList = new ArrayList<>();
 
 		out.println("\u6771" + " " + "\u00DF");

@@ -19,6 +19,7 @@ public class NavigableExample {
 		original.add(3);
 		original.add(4);
 		original.add(5);
+		original.add(6);
 
 		for (Integer i : original) {
 			out.println(i);
@@ -30,6 +31,7 @@ public class NavigableExample {
 			out.println(i);
 		}
 
+		//values less than 3
 		SortedSet<Integer> sort = original.headSet(3);
 
 		out.println();
